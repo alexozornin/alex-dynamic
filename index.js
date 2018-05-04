@@ -1,5 +1,7 @@
 'use strict'
 
+const util = require('util')
+
 module.exports = class Dynamic
 {
     constructor()
@@ -15,6 +17,15 @@ module.exports = class Dynamic
     removefunction(key)
     {
         delete this.functions[key];
+    }
+
+    hasfunction(key)
+    {
+        if(key in this.functions)
+        {
+            return true;
+        }
+        return false;
     }
 
     execute(key, args)
